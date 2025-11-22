@@ -1,5 +1,11 @@
 let express = require('express');
 let app = express();
+app.use(simpleLogger);// Middleware function to log requests
+
+function simpleLogger(req, res, next) {
+  console.log(`${req.method} ${req.path} - ${req.ip}`);// Log the HTTP method, path, and IP address
+  next();
+}
 
 require('dotenv').config();// Load environment variables from .env file
 
