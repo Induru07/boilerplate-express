@@ -41,7 +41,15 @@ app.get('/json', (req, res) => {// Serve a JSON response
     }
     res.json({"message": message});// Send a JSON response
 });
- 
+
+app.get('/now', (req, res, next) => {// Chain middleware to add current time to request
+
+ req.time = new Date().toString();// Add current time to request object
+ next();// Call next middleware
+}, (req, res) => {
+ res.json({time: req.time});// Send JSON response with current time
+});
+
 
 
 
