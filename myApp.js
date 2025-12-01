@@ -59,7 +59,14 @@ app.get('/:word/echo', (req, res) => {// Route parameter to echo a word
 });
 
 
+// Handle GET and POST requests to /name route
+app.route('/name')// Chain GET and POST handlers for /name route
+.get((req, res) => {// Handle GET requests
+  const firstName = req.query.first;// Get first name from query parameters
+  const lastName = req.query.last;// Get last name from query parameters
 
+  res.json({name : `${firstName} ${lastName}`});// Send JSON response with full name
+});
 
 
 
