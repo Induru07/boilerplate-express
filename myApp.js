@@ -51,7 +51,12 @@ app.get('/now', (req, res, next) => {// Chain middleware to add current time to 
 });
 
 
+app.get('/:word/echo', (req, res) => {// Route parameter to echo a word
+  const wordFromUrl = req.params,word // Get word from URL parameter
 
+  // Send JSON response with echoed word
+  res.json({echo: wordFromUrl});
+});
 
 
 
