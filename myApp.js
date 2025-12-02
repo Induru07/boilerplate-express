@@ -70,6 +70,12 @@ app.route('/name')// Chain GET and POST handlers for /name route
   res.json({name : `${firstName} ${lastName}`});// Send JSON response with full name
 });
 
+app.post('/name',(req,res)=>{// Handle POST requests
+  const firstName = req.query.first;// Get first name from query parameters
+  const lastName = req.query.last;// Get last name from query parameters
+
+  res.json({name : `${firstName} ${lastName}`});// Send JSON response with full name
+});
 
 
 
