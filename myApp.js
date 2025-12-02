@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express();
+let bodyParser = require('body-parser');// Import body-parser to parse request bodies
 
 // Middleware function to log requests
 function simpleLogger(req, res, next) {
@@ -16,6 +17,7 @@ require('dotenv').config();// Load environment variables from .env file
 console.log('Hello World');
 
 
+app.use(bodyParser.urlencoded({ extended: false }));// Parse URL-encoded bodies
 
 // app.get('/', (req, res) => {
 //   res.send('Hello Express');
